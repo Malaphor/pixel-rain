@@ -13,6 +13,10 @@ let animationPaused = true;
 let rafId = null;
 
 document.getElementById("imageList").addEventListener("change", () => {
+  if (document.getElementById("imageList").value === "witch.jpg") {
+    document.getElementById("hasColor").checked = false;
+    document.getElementById("hasColor").disabled = true;
+  }
   animationPaused = true;
   cancelAnimationFrame(rafId);
   particleArray.length = 0;
@@ -23,13 +27,8 @@ document.getElementById("imageList").addEventListener("change", () => {
 });
 
 document.getElementById("hasColor").addEventListener("click", (e) => {
-  if (document.getElementById("imageList").value === "witch.jpg") {
-    document.getElementById("hasColor").checked = false;
-    document.getElementById("hasColor").disabled = true;
-  } else {
-    hasColor = hasColor === false ? true : false;
-    document.getElementById("hasColor").checked = hasColor;
-  }
+  hasColor = hasColor === false ? true : false;
+  document.getElementById("hasColor").checked = hasColor;
 });
 
 image.addEventListener("load", () => {
