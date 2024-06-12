@@ -1,5 +1,6 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
+ctx.lineWidth = 1;
 const image = new Image();
 image.src = "img/" + document.getElementById("imageList").value;
 
