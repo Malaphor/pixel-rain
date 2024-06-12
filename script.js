@@ -1,6 +1,5 @@
 const canvas = document.getElementById("canvas");
 const ctx = canvas.getContext("2d");
-ctx.lineWidth = 1;
 const image = new Image();
 image.src = "img/" + document.getElementById("imageList").value;
 
@@ -24,9 +23,13 @@ document.getElementById("imageList").addEventListener("change", () => {
 });
 
 document.getElementById("hasColor").addEventListener("click", (e) => {
-  console.log(e.target);
-  hasColor = hasColor === false ? true : false;
-  document.getElementById("hasColor").checked = hasColor;
+  if (document.getElementById("imageList").value === "witch.jpg") {
+    document.getElementById("hasColor").checked = false;
+    document.getElementById("hasColor").disabled = true;
+  } else {
+    hasColor = hasColor === false ? true : false;
+    document.getElementById("hasColor").checked = hasColor;
+  }
 });
 
 image.addEventListener("load", () => {
