@@ -1,0 +1,49 @@
+* {
+  margin: 0;
+  padding: 0;
+  color: white;
+  box-sizing: border-box;
+  background-color: black;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-content: space-around;
+}
+
+h1 {
+  padding-top: 20px;
+  text-align: center;
+}
+
+#options {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin-top: 10px;
+  font-size: large;
+}
+
+#imageList {
+  padding: 5px 0 5px 5px;
+  font-size: large;
+}
+
+#checkboxContainer {
+  align-content: center;
+}
+
+#hasColor {
+  width: 1.3em;
+  height: 1.3em;
+  margin-left: 5px;
+}
+
+#canvas {
+  border: 2px solid white;
+  border-radius: 15px;
+}

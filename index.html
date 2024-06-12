@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pixel Rain</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <h1>Pixel Rain</h1>
+    <div id="options">
+      <select name="imageList" id="imageList">
+        <option value="carter.png" selected>Carter</option>
+
+        <option value="witch.jpg">Witch</option>
+        <option value="totoro.jpg">Totoro</option>
+        <option value="heart.png">Heart</option>
+        <option value="heart2.jpg">Heart 2</option>
+        <option value="greenSkull.jpg">Skull</option>
+        <option value="gow.jpg">Kratos</option>
+      </select>
+      <div id="checkboxContainer">
+        <label id="hasColorLabel" for="hasColor">Color</label>
+        <input type="checkbox" id="hasColor" name="hasColor" />
+      </div>
+    </div>
+    <canvas id="canvas"></canvas>
+    <script src="script.js"></script>
+  </body>
+</html>
