@@ -106,7 +106,7 @@ class FlowFieldEffect {
     this.width = this.canvas.width;
     this.height = this.canvas.height;
     this.particles = [];
-    this.numberOfParticles = 1000;
+    this.numberOfParticles = 1500;
     this.cellSize = 20;
     this.rows;
     this.cols;
