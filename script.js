@@ -19,13 +19,13 @@ class FlowFieldParticle {
     this.effect = effect;
     this.x = Math.floor(Math.random() * this.effect.width);
     this.y = Math.floor(Math.random() * this.effect.height);
-    this.speedX;
-    this.speedY;
+    this.speedX = 0;
+    this.speedY = 0;
     this.speedModifier = Math.random() * 5 + 1;
     this.history = [{ x: this.x, y: this.y }];
     this.maxLength = Math.floor(Math.random() * 200 + 10);
     this.angle = 0;
-    this.newAngle;
+    this.newAngle = 0;
     this.angleModifier = Math.random() * 0.5 + 0.5;
     this.timer = this.maxLength * 2;
     this.color = "#4c026b";
@@ -108,13 +108,13 @@ class FlowFieldEffect {
     this.particles = [];
     this.numberOfParticles = 1500;
     this.cellSize = 20;
-    this.rows;
-    this.cols;
+    this.rows = 0;
+    this.cols = 0;
     this.flowField = [];
     this.curve = 2.5;
     this.zoom = 0.2;
     this.debug = false;
-    this.imagePattern;
+    this.imagePattern = null;
 
     window.addEventListener("keydown", (e) => {
       if (e.key.toLowerCase() === "d") this.debug = !this.debug;
@@ -139,7 +139,9 @@ class FlowFieldEffect {
         //const alpha = pixels[index + 3];
         const weightedGrayscale = 0.299 * red + 0.587 * green + 0.114 * blue;
         const grayscale = (red + green + blue) / 3;
-        const colorAngle = ((weightedGrayscale / 255) * 6.28).toFixed(2);
+        const colorAngle = Number(
+          ((weightedGrayscale / 255) * 6.28).toFixed(2)
+        );
         this.flowField.push({
           x: x,
           y: y,
