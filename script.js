@@ -10,9 +10,6 @@ let mappedImageForRain = [];
 let hasColor = false;
 document.getElementById("hasColor").checked = hasColor;
 let effectType = document.getElementById("effectList").value;
-if (document.getElementById("imageList").value === "witch.jpg") {
-  document.getElementById("hasColor").disabled = true;
-}
 
 class FlowFieldParticle {
   constructor(effect) {
@@ -220,15 +217,6 @@ function calcHue(r, g, b) {
 }
 
 document.getElementById("imageList").addEventListener("change", () => {
-  if (document.getElementById("imageList").value === "witch.jpg") {
-    ctx.strokeStyle = "white";
-    hasColor = false;
-    document.getElementById("hasColor").checked = false;
-    document.getElementById("hasColor").disabled = true;
-  } else {
-    document.getElementById("hasColor").disabled = false;
-  }
-
   if (document.getElementById("effectList").value === "rain") {
     particleArray.length = 0;
     mappedImageForRain.length = 0;
@@ -247,24 +235,13 @@ document.getElementById("effectList").addEventListener("change", () => {
     ctx.globalAlpha = 1;
     ctx.strokeStyle = hasColor ? flowField.imagePattern : "white";
   }
-  if (document.getElementById("imageList").value !== "witch.jpg") {
-    document.getElementById("hasColor").disabled = false;
-  } else {
-    ctx.strokeStyle = "white";
-    hasColor = false;
-    document.getElementById("hasColor").disabled = true;
-  }
   processImageData();
 });
 
 document.getElementById("hasColor").addEventListener("click", (e) => {
   hasColor = hasColor === false ? true : false;
   document.getElementById("hasColor").checked = hasColor;
-  if (document.getElementById("imageList").value === "witch.jpg") {
-    ctx.strokeStyle = "white";
-  } else {
-    ctx.strokeStyle = hasColor ? flowField.imagePattern : "white";
-  }
+  ctx.strokeStyle = hasColor ? flowField.imagePattern : "white";
 });
 
 image.addEventListener("load", () => {
